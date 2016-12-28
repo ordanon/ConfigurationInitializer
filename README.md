@@ -25,8 +25,10 @@ run the following command in the [Package Manager Console](http://docs.nuget.org
     
     public class School {
         public static Main(){
+            // The config instance is auto populated, decrypting secrets and converting types.
             var config = new SchoolConfiguration();
             
+            // The configuration is now available for the rest of the application.
             Console.Out.WriteLine($"Schole name = {config.SchoolName}, break period = {config.BreakPeriod}");
         }
     }
