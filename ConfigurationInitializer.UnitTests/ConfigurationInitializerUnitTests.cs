@@ -12,7 +12,7 @@ namespace ConfigurationInitializer.UnitTests
     public class ConfigurationInitializerUnitTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void ValidateGoodFlow()
         {
             var config = new TestConfiguration();
 
@@ -23,11 +23,11 @@ namespace ConfigurationInitializer.UnitTests
 
         [TestMethod]
         [ExpectedException(typeof(CryptographicException))]
-        public void WhenEncrypted()
+        public void WhenConfigSettingIsEncryptedAndRelevantCertificateIsMissingExceptionIsThrown()
         {
             var customSettings = new Dictionary<string, string>()
             {
-                { "SchoolName","MIICJwYJKoZIhvcNAQcDoIICGDCCAhQCAQAxggHAMIIBvAIBADCBozCBizELMAkGA1UEBhMCVVMxEzARBgNVBAgTCldhc2hpbmd0b24xEDAOBgNVBAcTB1JlZG1vbmQxHjAcBgNVBAoTFU1pY3Jvc29mdCBDb3Jwb3JhdGlvbjEVMBMGA1UECxMMTWljcm9zb2Z0IElUMR4wHAYDVQQDExVNaWNyb3NvZnQgSVQgU1NMIFNIQTICE1oABbnBxTx24nVqf9YAAQAFucEwDQYJKoZIhvcNAQEBBQAEggEACOq1WacsiTfVLVt3+ChXONN7ISwB1p7HcKEFRWEZVVqdV9+qgS2XqQ2wo0dwmq+jcAzY8sl+2Q8R6+iLPUBH0kbZQoXbRjF2kKJMZZeOIjgFfpgcf8p98kuQS0Unx53Bl2ZbgNDralytz1TkBjz2CY71xJzokYuAbQOmW7iM/soOIGobBe5DmcNkxvotpqeqbn3+rS3vP/RYakoAvtOZXEZZn0S/BFeBZmUy5Hfxi8ncMruIcJT2xpykO3meTpH2Ci76qlcT8ldCSpbaPOET3Q23IlPZOGpqU+iFfeAijrBc3XJ3tTFoRt72LZkecyFfzY0eIl0slCSW0toPU0Ec3zBLBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECCKOfRB+EE79gCjchYEHnOEqy9LqX77DIa+e2J6VLtMX6dZYNS3e1jPlrlBrwk08GK3G"}
+                { "SchoolName","MIIB/QYJKoZIhvcNAQcDoIIB7jCCAeoCAQAxggG2MIIBsgIBADCBmTCBgTETMBEGCgmSJomT8ixkARkWA2NvbTEZMBcGCgmSJomT8ixkARkWCW1pY3Jvc29mdDEUMBIGCgmSJomT8ixkARkWBGNvcnAxFzAVBgoJkiaJk/IsZAEZFgdyZWRtb25kMSAwHgYDVQQDExdNU0lUIFRlc3QgQ29kZVNpZ24gQ0EgNgITHQBU1cky1/xqD6sIvQABAFTVyTANBgkqhkiG9w0BAQEFAASCAQA7fAqWCs/nEhDbA7ythU3IvvM7M7ihLLhSEDENG7cr+vhHPoI2OidgCt2o7NemEOgM2duwbIXxdO6XyN2D76zUS//8NvVkr9y4KA0+KQCcA7UpldL/cQhFZvJFGyUdqxJp4e27HxvJgwFhx3Rx0w0d3qO/gxlXxlrThoOKzGdjOVnU/uzo6UDSLWJveNIV9XOpAUVEIo0J+sgZsE49nG1cdf1oClN742gZKl7oKwdB7x/LLsxWywAMsZFPC0VgFIrBM0EWeBrW6uSpQV1bznLDYibds+rjRqREpFvZip25w3ls+0khNrRwe3FllRibmmvIJj440/Fi3nKcTTimvOV6MCsGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQI/ze6ikl+g92ACGEgsiWnL/AD"}
             };
 
             var configurationReaderMock = GetConfigurationReaderMock(customSettings);

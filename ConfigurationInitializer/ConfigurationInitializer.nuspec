@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>orda,galha</authors>
+    <owners>orda,galha</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>configuration initializer, manage decryption and type convertion of settings public properties</description>
+    <projectUrl>https://github.com/ordanon/ConfigurationInitializer</projectUrl>
+    <releaseNotes>
+      1.0.0.0 - First version.
+    </releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags>config configuration decrypt</tags>
+  </metadata>
+</package>
