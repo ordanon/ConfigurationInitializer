@@ -22,7 +22,7 @@ namespace ConfigurationInitializer.UnitTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(CryptographicException))]
+        [ExpectedException(typeof(FieldInitializationFailureException))]
         public void WhenConfigSettingIsEncryptedAndRelevantCertificateIsMissingExceptionIsThrown()
         {
             var customSettings = new Dictionary<string, string>()

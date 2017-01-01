@@ -53,6 +53,7 @@
     <Compile Include="ConfigKeyAttribute.cs" />
     <Compile Include="ConfigurationDecryptor.cs" />
     <Compile Include="ConfigurationInitializer.cs" />
+    <Compile Include="FieldInitializationFailureException.cs" />
     <Compile Include="IConfigurationReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

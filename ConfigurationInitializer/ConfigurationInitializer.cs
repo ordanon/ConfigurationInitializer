@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
 namespace ConfigurationInitializer
@@ -41,13 +42,22 @@ namespace ConfigurationInitializer
             foreach (PropertyInfo propertyInfo in this.GetType().GetProperties().Where(p => p.CanWrite))
             {
                 string configKey = GetPropertyConfigKey(propertyInfo);
-                string rawSettingValue = _configurationReader.GetSettingValue(configKey);
 
-                string decryptedValue = _configurationDecryptor.DecryptAllSecrets(rawSettingValue);
+                try
+                {
+                    string rawSettingValue = _configurationReader.GetSettingValue(configKey);
 
-                object convertedObject = ConvertValueToPropertyType(propertyInfo, decryptedValue);
+                    string decryptedValue = _configurationDecryptor.DecryptAllSecrets(rawSettingValue);
 
-                propertyInfo.SetValue(this, convertedObject, null);
+                    object convertedObject = ConvertValueToPropertyType(propertyInfo, decryptedValue);
+
+                    propertyInfo.SetValue(this, convertedObject, null);
+                }
+                catch (Exception ex)
+                {
+                    throw new FieldInitializationFailureException($"Failed initializing property: {propertyInfo.Name}, " +
+                                                                  $"from config key: {configKey}, with exception: {ex}", ex);
+                }
             }
         }
 
