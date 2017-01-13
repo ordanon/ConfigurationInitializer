@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace ConfigurationUtils.ConfigurationInitializer
+namespace ConfigurationUtils
 {
     public interface IConfigurationReader
     {

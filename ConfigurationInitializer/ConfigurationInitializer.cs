@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using Newtonsoft.Json;
 
-namespace ConfigurationUtils.ConfigurationInitializer
+namespace ConfigurationUtils
 {
     /// <summary>
     /// Uses properties attributes in order to initialize inherited configuration classs from the configuration files.

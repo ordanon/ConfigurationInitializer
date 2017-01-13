@@ -4,7 +4,7 @@ using System.Security.Cryptography.Pkcs;
 using System.Text.RegularExpressions;
 using EncryptDecryptUtils;
 
-namespace ConfigurationUtils.ConfigurationInitializer
+namespace ConfigurationUtils
 {
     public class ConfigurationDecryptor
     {

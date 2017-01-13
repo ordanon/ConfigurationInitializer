@@ -1,4 +1,4 @@
-﻿namespace ConfigurationUtils.ConfigurationInitializer.Azure
+﻿namespace ConfigurationUtils.Azure
 {
     public class AzureRoleConfigurationInitializer : ConfigurationInitializer
     {

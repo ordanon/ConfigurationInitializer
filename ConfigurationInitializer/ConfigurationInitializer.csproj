@@ -7,7 +7,7 @@
     <ProjectGuid>{4CD003D6-CFA4-4A7D-A24E-646F22D77CA1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ConfigurationUtils.ConfigurationInitializer</RootNamespace>
+    <RootNamespace>ConfigurationUtils</RootNamespace>
     <AssemblyName>ConfigurationInitializer</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -61,7 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EncryptDecryptUtils\EncryptDecryptUtils.csproj">
-      <Project>{492b24cd-2b26-41d5-966b-4da6ef169bdd}</Project>
+      <Project>{492B24CD-2B26-41D5-966B-4DA6EF169BDD}</Project>
       <Name>EncryptDecryptUtils</Name>
     </ProjectReference>
   </ItemGroup>

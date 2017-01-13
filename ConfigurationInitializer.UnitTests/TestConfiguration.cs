@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ConfigurationUtils.ConfigurationInitializer.UnitTests
+namespace ConfigurationUtils.UnitTests
 {
     public class TestConfiguration : ConfigurationInitializer
     {

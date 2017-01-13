@@ -1,2 +1,2 @@
-nuget pack ConfigurationInitializer.csproj -Prop Configuration=Release
+nuget pack ConfigurationInitializer.csproj -Prop Configuration=Release -IncludeReferencedProjects
 set /p DUMMY=Hit ENTER to continue...

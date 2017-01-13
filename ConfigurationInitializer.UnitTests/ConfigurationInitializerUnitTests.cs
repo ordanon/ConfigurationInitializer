@@ -5,7 +5,7 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
-namespace ConfigurationUtils.ConfigurationInitializer.UnitTests
+namespace ConfigurationUtils.UnitTests
 {
     [TestClass]
     public class ConfigurationInitializerUnitTests

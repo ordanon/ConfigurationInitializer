@@ -10,7 +10,7 @@
     <description>Azure role configuration initializer, manage decryption and type convertion of settings public properties</description>
     <projectUrl>https://github.com/ordanon/ConfigurationInitializer</projectUrl>
     <releaseNotes>
-      1.0.2.0 - Added AzureRoleConfigurationInitializer for more convenient consumption.
+      1.0.3.0 - Added AzureRoleConfigurationInitializer for more convenient consumption.
       1.0.0.0 - Added configuration reader for role settings.
     </releaseNotes>
     <copyright>Copyright 2016</copyright>

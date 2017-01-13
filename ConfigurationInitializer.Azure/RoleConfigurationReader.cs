@@ -1,6 +1,6 @@
 ﻿using Microsoft.WindowsAzure.ServiceRuntime;
 
-namespace ConfigurationUtils.ConfigurationInitializer.Azure
+namespace ConfigurationUtils.Azure
 {
     public class RoleConfigurationReader : IConfigurationReader
     {

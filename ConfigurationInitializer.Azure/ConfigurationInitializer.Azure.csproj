@@ -7,7 +7,7 @@
     <ProjectGuid>{9FC7A669-3195-49FD-AF68-8DB8187EA5AB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ConfigurationUtils.ConfigurationInitializer.Azure</RootNamespace>
+    <RootNamespace>ConfigurationUtils.Azure</RootNamespace>
     <AssemblyName>ConfigurationInitializer.Azure</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -56,7 +56,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ConfigurationInitializer.Azure.nuspec" />
+    <None Include="ConfigurationInitializer.Azure.nuspec">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="CreateNuget.cmd" />
     <None Include="packages.config" />
   </ItemGroup>

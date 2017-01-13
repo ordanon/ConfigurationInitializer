@@ -6,7 +6,7 @@
     <ProjectGuid>{0513BE48-0146-44E1-A459-23785DE3282E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ConfigurationUtils.ConfigurationInitializer.UnitTests</RootNamespace>
+    <RootNamespace>ConfigurationUtils.UnitTests</RootNamespace>
     <AssemblyName>ConfigurationInitializer.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
