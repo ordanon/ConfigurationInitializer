@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ConfigurationInitializer
+namespace ConfigurationUtils.ConfigurationInitializer
 {
     /// <summary>
     /// Defines target property key in the config files.

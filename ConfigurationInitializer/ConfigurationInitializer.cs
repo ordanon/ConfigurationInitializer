@@ -2,10 +2,9 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
-namespace ConfigurationInitializer
+namespace ConfigurationUtils.ConfigurationInitializer
 {
     /// <summary>
     /// Uses properties attributes in order to initialize inherited configuration classs from the configuration files.

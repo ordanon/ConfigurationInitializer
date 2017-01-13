@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
-using System.Security.Cryptography;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
-namespace ConfigurationInitializer.UnitTests
+namespace ConfigurationUtils.ConfigurationInitializer.UnitTests
 {
     [TestClass]
     public class ConfigurationInitializerUnitTests

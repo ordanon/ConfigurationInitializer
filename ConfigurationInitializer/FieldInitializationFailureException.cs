@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace ConfigurationInitializer
+namespace ConfigurationUtils.ConfigurationInitializer
 {
     public class FieldInitializationFailureException : Exception
     {

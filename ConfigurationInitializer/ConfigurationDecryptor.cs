@@ -1,11 +1,10 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Security.Cryptography;
 using System.Security.Cryptography.Pkcs;
 using System.Text.RegularExpressions;
 using EncryptDecryptUtils;
 
-namespace ConfigurationInitializer
+namespace ConfigurationUtils.ConfigurationInitializer
 {
     public class ConfigurationDecryptor
     {
