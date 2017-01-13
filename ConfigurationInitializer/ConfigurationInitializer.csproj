@@ -31,10 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="config.encrypt, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d1293f23069b37e3, processorArchitecture=MSIL">
-      <HintPath>..\packages\config.encrypt.1.0.0.6\lib\net40\config.encrypt.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -62,6 +58,12 @@
     <None Include="ConfigurationInitializer.nuspec" />
     <None Include="CreateNuget.cmd" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EncryptDecryptUtils\EncryptDecryptUtils.csproj">
+      <Project>{492b24cd-2b26-41d5-966b-4da6ef169bdd}</Project>
+      <Name>EncryptDecryptUtils</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Security.Cryptography;
+using System.Security.Cryptography.Pkcs;
 using System.Text.RegularExpressions;
-using Microsoft.ManagementServices.ConfigurationEncryption;
+using EncryptDecryptUtils;
 
 namespace ConfigurationInitializer
 {
     public class ConfigurationDecryptor
     {
         private static readonly Regex Base64Regex = new Regex("(?:[A-Za-z0-9+/]{4}){20,}(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?");
-        private readonly ConfigurationEncryptionProvider _configurationEncryptionProvider;
+        private readonly ICryptoProvider _cryptoProvider;
 
         public ConfigurationDecryptor()
         {
-            _configurationEncryptionProvider = new ConfigurationEncryptionProvider();
+            _cryptoProvider = new CryptoProvider();
         }
 
         public string DecryptAllSecrets(string encryptedValue)
@@ -26,15 +27,17 @@ namespace ConfigurationInitializer
 
         private string DecryptBase64StringIfPossible(string base64String)
         {
-            try
+            EnvelopedCms envelopedCms;
+            if (!_cryptoProvider.TryParseEnvelopedCms(base64String, out envelopedCms))
             {
-                return _configurationEncryptionProvider.Decrypt(base64String);
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-                // Ignore exception, base64 string is not a valid envelopedCms.
+                // base64 string is not a valid envelopedCms.
                 // No secret to decrypt.
                 return base64String;
+            }
+
+            try
+            {
+                return _cryptoProvider.Decrypt(envelopedCms);
             }
             catch (CryptographicException ex)
             {
