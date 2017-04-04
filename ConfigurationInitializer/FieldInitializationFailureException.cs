@@ -3,6 +3,7 @@ using System.Runtime.Serialization;
 
 namespace ConfigurationUtils
 {
+    [Serializable]
     public class FieldInitializationFailureException : Exception
     {
         public FieldInitializationFailureException()
