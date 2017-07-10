@@ -54,8 +54,7 @@ namespace ConfigurationUtils
                 }
                 catch (Exception ex)
                 {
-                    throw new FieldInitializationFailureException($"Failed initializing property: {propertyInfo.Name}, " +
-                                                                  $"from config key: {configKey}, with exception: {ex}", ex);
+                    throw new ArgumentException($"Failed initializing property: {propertyInfo.Name}, from config key: {configKey}, with exception: {ex}");
                 }
             }
         }
