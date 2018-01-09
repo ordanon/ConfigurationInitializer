@@ -1,4 +1,5 @@
 ﻿using Microsoft.WindowsAzure.ServiceRuntime;
+using System.Configuration;
 
 namespace ConfigurationUtils.Azure
 {
@@ -6,7 +7,14 @@ namespace ConfigurationUtils.Azure
     {
         public string GetSettingValue(string settingKey)
         {
-            return RoleEnvironment.GetConfigurationSettingValue(settingKey);
+            if (RoleEnvironment.IsAvailable)
+            {
+                return RoleEnvironment.GetConfigurationSettingValue(settingKey);
+            }
+            else
+            {
+                return ConfigurationManager.AppSettings[settingKey];
+            }
         }
     }
 }
