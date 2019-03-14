@@ -26,7 +26,10 @@ namespace ConfigurationUtils
             if (encryptedValue == null) return null;
 
             var decryptedValue = Base64Regex.Replace(encryptedValue, match => DecryptBase64StringIfPossible(match.Value));
-            if(string.Equals(decryptedValue, encryptedValue)) decryptedValue = ComplexBase64Regex.Replace(encryptedValue, match => DecryptComplexBase64String(match.Value));
+            if(string.Equals(decryptedValue, encryptedValue)) 
+            {
+            decryptedValue = ComplexBase64Regex.Replace(encryptedValue, match => DecryptComplexBase64String(match.Value));
+            }
             return decryptedValue;
         }
 
