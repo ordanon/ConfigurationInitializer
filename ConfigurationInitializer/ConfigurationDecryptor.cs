@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Security.Cryptography;
 using System.Security.Cryptography.Pkcs;
 using System.Text.RegularExpressions;
@@ -26,7 +27,10 @@ namespace ConfigurationUtils
             if (encryptedValue == null) return null;
 
             var decryptedValue = Base64Regex.Replace(encryptedValue, match => DecryptBase64StringIfPossible(match.Value));
-            if(string.Equals(decryptedValue, encryptedValue)) decryptedValue = ComplexBase64Regex.Replace(encryptedValue, match => DecryptComplexBase64String(match.Value));
+            if (string.Equals(decryptedValue, encryptedValue))
+            {
+                decryptedValue = ComplexBase64Regex.Replace(encryptedValue, match => DecryptComplexBase64String(match.Value));
+            }
             return decryptedValue;
         }
 
@@ -55,7 +59,7 @@ namespace ConfigurationUtils
             {
                 return _cryptoProvider.Decrypt(complexBase64String);
             }
-            catch (CryptographicException ex)
+            catch (Exception ex)
             {
                 Trace.TraceError($"Failed to decrypt complex secret with exception {ex}");
                 throw;
