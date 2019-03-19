@@ -17,7 +17,7 @@ namespace EncryptDecryptUtils
     {
         string Encrypt(string secret, X509Certificate2 publicKeyCertificate);
 
-        string Decrypt(string encryptedSecret);
+        string JweDecrypt(string encryptedSecret);
 
         string Decrypt(string encryptedSecret, X509Certificate2[] certificates = null);
 
@@ -55,14 +55,22 @@ namespace EncryptDecryptUtils
             envelopedCms.Encrypt(new CmsRecipient(publicKeyCertificate));
             return Convert.ToBase64String(envelopedCms.Encode());
         }
-        public string Decrypt(string encryptedSecret)
+        public string JweDecrypt(string encryptedSecret)
         {
             IKeyResolver certificateKeyResolver = new CertificateStoreKeyResolver(StoreName.My,StoreLocation.LocalMachine);
 
-            var decrypted = JsonWebEncryption.UnprotectCompactAsync(certificateKeyResolver, encryptedSecret).GetAwaiter().GetResult();
-            var secret = Encoding.Default.GetString(decrypted);
+            try
+            {
+                var decrypted = JsonWebEncryption.UnprotectCompactAsync(certificateKeyResolver, encryptedSecret).GetAwaiter().GetResult();
+                var secret = Encoding.Default.GetString(decrypted);
 
-            return secret;
+                return secret;
+            }
+            catch (JweFormatException)
+            {
+                // Bad format, not a valid JWE encryption
+                return encryptedSecret;
+            }
         }
         public string Decrypt(string encryptedSecret, X509Certificate2[] certificates = null)
         {
