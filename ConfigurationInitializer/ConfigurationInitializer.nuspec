@@ -10,7 +10,7 @@
     <description>configuration initializer, manage decryption and type convertion of settings public properties</description>
     <projectUrl>https://github.com/ordanon/ConfigurationInitializer</projectUrl>
     <releaseNotes>
-      2.0.0.1 - Bug fix to support both regex
+      2.0.1.0 - Bug fix to support both regex
       2.0.0.0 - Added decryption based Jwe algorithm
       1.0.4.0 - Support .NET Framework 4.5.1.
       1.0.2.0 - Added cleaner exception handling.
