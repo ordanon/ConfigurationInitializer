@@ -7,12 +7,17 @@ using System.Security.Cryptography.X509Certificates;
 using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Azure.KeyVault.Core;
+using Microsoft.Azure.KeyVault.Express;
+using Microsoft.Azure.KeyVault.Jose;
 
 namespace EncryptDecryptUtils
 {
     public interface ICryptoProvider
     {
         string Encrypt(string secret, X509Certificate2 publicKeyCertificate);
+
+        string JweDecrypt(string encryptedSecret);
 
         string Decrypt(string encryptedSecret, X509Certificate2[] certificates = null);
 
@@ -50,7 +55,23 @@ namespace EncryptDecryptUtils
             envelopedCms.Encrypt(new CmsRecipient(publicKeyCertificate));
             return Convert.ToBase64String(envelopedCms.Encode());
         }
+        public string JweDecrypt(string encryptedSecret)
+        {
+            IKeyResolver certificateKeyResolver = new CertificateStoreKeyResolver(StoreName.My,StoreLocation.LocalMachine);
 
+            try
+            {
+                var decrypted = JsonWebEncryption.UnprotectCompactAsync(certificateKeyResolver, encryptedSecret).GetAwaiter().GetResult();
+                var secret = Encoding.Default.GetString(decrypted);
+
+                return secret;
+            }
+            catch (JweFormatException)
+            {
+                // Bad format, not a valid JWE encryption
+                return encryptedSecret;
+            }
+        }
         public string Decrypt(string encryptedSecret, X509Certificate2[] certificates = null)
         {
             EnvelopedCms envelopedCms = ParseEnvelopedCms(encryptedSecret);
